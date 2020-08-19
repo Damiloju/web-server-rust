@@ -17,10 +17,13 @@ fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 1024];
     stream.read(&mut buffer).unwrap();
 
-    let get = b"GET / HTTP/1.1\r\n";
+    let home = b"GET / HTTP/1.1\r\n";
+    let about = b"GET /about HTTP/1.1\r\n";
 
-    let (status_line, filename) = if buffer.starts_with(get) {
+    let (status_line, filename) = if buffer.starts_with(home) {
         ("HTTP/1.1 200 OK\r\n\r\n", "hello.html")
+    } else if buffer.starts_with(about) {
+        ("HTTP/1.1 200 OK\r\n\r\n", "about.html")
     } else {
         ("HTTP/1.1 404 NOT FOUND\r\n\r\n", "404.html")
     };
