@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello!</title>
+  </head>
+  <body>
+    <h1>Hello!</h1>
+    <p>Hi from a Rust web server</p>
+    <p>Counter <span id="counter">0</span></p>
+    <button id="button">Increment Counter</button>
+
+    <script>
+      const IncrementCounter = () => {
+        const counter = document.getElementById("counter");
+        counter.textContent = Number(counter.textContent) + 1;
+      };
+      const button = document.getElementById("button");
+      button.addEventListener("click", IncrementCounter);
+    </script>
+  </body>
+</html>
