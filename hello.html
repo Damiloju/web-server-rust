@@ -3,12 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <title>Hello!</title>
+    <style lang="css">
+      .body {
+        max-width: 720px;
+        margin: 0 auto;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      #button {
+        background-color: green;
+        padding: 5px 5px;
+        border-radius: 5px;
+        border: 1px dashed green;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello!</h1>
-    <p>Hi from a Rust web server</p>
-    <p>Counter <span id="counter">0</span></p>
-    <button id="button">Increment Counter</button>
+    <div class="body">
+      <h1>Hello!</h1>
+      <p>This is a simple web server implemented in rust</p>
+      <p>
+        Counter : <strong><span id="counter">0</span></strong>
+      </p>
+      <button id="button">Increment Counter</button>
+      <a href="/about">Go to About</a>
+    </div>
 
     <script>
       const IncrementCounter = () => {
